@@ -3,6 +3,9 @@ import Jugador.Jugador;
 import Milicia.FabricaSoldados;
 import Milicia.TipoSoldado;
 import Milicia.Soldado;
+import Vehiculos.FabricaVehiculos;
+import Vehiculos.TipoVehiculo;
+import Vehiculos.Vehiculo;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -24,6 +27,8 @@ public class Main {
         
         Soldado E2 = FabricaSoldados.getEspecialista(TipoSoldado.ESR1);
         
+        Vehiculo V2= FabricaVehiculos.getVehiculo(TipoVehiculo.VR1);
+        
     
         
         Jugador J1= new Jugador();
@@ -31,6 +36,8 @@ public class Main {
         Jugador J2= new Jugador();
         
         J1.setAtaque(E1.atacar()); //Seteando Ataque de E1.
+        
+        
         
         System.out.println("f"+J1.getLP());
         
@@ -44,6 +51,11 @@ public class Main {
         
         System.out.println("f"+J1.getLP());
         
+        J1.setAtaque(V2.atacar());
+        
+         J1.atacarLP();
+  
+        System.out.println("f"+J1.getLP());        
         
         
        
