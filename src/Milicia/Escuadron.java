@@ -10,6 +10,7 @@ package Milicia;
  * @author alex
  */
 public interface Escuadron {
-    void attack();
-    
+ 
+
+    int atacar();
 }

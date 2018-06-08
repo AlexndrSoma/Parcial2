@@ -13,7 +13,7 @@ import Milicia.Especialista;
  */
 public class SESR1 implements Especialista {
         @Override
-    public void attack(){
+    public void atacar(){
         
         
     }

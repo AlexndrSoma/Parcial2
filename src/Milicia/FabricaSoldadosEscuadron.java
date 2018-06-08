@@ -15,9 +15,11 @@ import Milicia.SoldadoEscuadron.SER3;
  */
 public class FabricaSoldadosEscuadron {
     
+    
     public static Escuadron getEscuadron(RazaSoldadoEscuadron type) {
         switch (type) {
             case R1:
+                
                 return new SER1();
             case R2:
                 return new SER2();

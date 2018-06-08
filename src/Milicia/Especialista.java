@@ -10,6 +10,6 @@ package Milicia;
  * @author alex
  */
 public interface Especialista {
-    void attack();
+    void atacar();
     
 }

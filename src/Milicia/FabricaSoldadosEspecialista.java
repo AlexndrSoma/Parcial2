@@ -5,6 +5,10 @@
  */
 package Milicia;
 
+import Milicia.SoldadoEspecialista.SESR1;
+import Milicia.SoldadoEspecialista.SESR2;
+import Milicia.SoldadoEspecialista.SESR3;
+
 
 
 /**

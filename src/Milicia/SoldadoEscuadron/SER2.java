@@ -13,7 +13,7 @@ import Milicia.Escuadron;
  */
 public class SER2 implements Escuadron {
         @Override
-    public void attack(){
+    public void atacar(){
         
         
     }
