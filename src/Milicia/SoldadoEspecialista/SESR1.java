@@ -5,18 +5,21 @@
  */
 package Milicia.SoldadoEspecialista;
 
-import Milicia.Especialista;
+
+import Milicia.Soldado;
 
 /**
  *
  * @author alex
  */
-public class SESR1 implements Especialista {
-        @Override
-    public void atacar(){
-        
-        
-    }
+public class SESR1 implements Soldado {
     
+          @Override
+   public int atacar(){
+        int ataque=500;
+
+  
+        return ataque;
+    }
     
 }

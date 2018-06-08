@@ -5,27 +5,26 @@
  */
 package Milicia.SoldadoEscuadron;
 
-import Milicia.Escuadron;
+import Milicia.Soldado;
 
 /**
  *
  * @author alex
  */
-public class SER1 implements Escuadron {
+public class SER1 implements Soldado {
     
-   
-    @Override
-    public int atacar(){
+          @Override
+   public int atacar(){
         int ataque=500;
 
   
         return ataque;
     }
-   
-    
-    
     
 }
+    
+    
+    
         
         
     

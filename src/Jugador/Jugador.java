@@ -14,23 +14,40 @@ package Jugador;
  */
 public class Jugador {
     
+    String nombre;
     public int LP=5000;
     int ataque;
+    int recurso1;
+    int recurso2;
+    int recurso3;
+    
+    
+    
+    
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
     
-   
-  
-
     public void setLP(int LP) {
         this.LP = LP;
         
     }
     
-    
+    public int atacarLP(){
+        
+        LP=LP-getAtaque();
+        
+        return LP;
+        
+    }
 
     public int getLP() {
-        
-        LP=LP-ataque;
         
         return LP;
     }

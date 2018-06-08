@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Milicia;
+package Vehiculos;
 
 /**
  *
  * @author alex
  */
-public enum RazaSoldadoEscuadron {
-    
-    R1,R2,R3
-    
+public interface Vehiculo {
+    int atacar();
 }

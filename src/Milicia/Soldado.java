@@ -9,6 +9,6 @@ package Milicia;
  *
  * @author alex
  */
-public class AbstractFactory {
-    
+public interface Soldado {
+    int atacar();
 }

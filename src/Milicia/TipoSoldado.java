@@ -9,8 +9,8 @@ package Milicia;
  *
  * @author alex
  */
-public interface Escuadron {
- 
-
-    int atacar();
+public enum TipoSoldado {
+    
+    ESR1,ESR2,ESR3,ER1,ER2,ER3;
+    
 }

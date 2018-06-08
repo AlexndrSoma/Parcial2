@@ -3,18 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package Milicia.SoldadoEscuadron;
 
-import Milicia.Escuadron;
+import Milicia.Soldado;
 
 /**
  *
  * @author alex
  */
-public class SER2 implements Escuadron {
+public class SER2 implements Soldado {
+    
+    
         @Override
-    public void atacar(){
-        
-        
+   public int atacar(){
+        int ataque=500;
+
+  
+        return ataque;
     }
 }
