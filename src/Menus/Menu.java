@@ -13,6 +13,7 @@ import Milicia.TipoSoldado;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
+import java.util.ArrayList;
 
 /**
  *
@@ -21,10 +22,17 @@ import javax.swing.JOptionPane;
 public class Menu {
 
     int opc1;
+    int opc2;
     int raza;
     int ataque;
     static Scanner sn = new Scanner(System.in);
     boolean salir = false;
+
+    Jugador J1 = new Jugador();
+    Jugador J2 = new Jugador();
+
+    ArrayList<Soldado> SoldadosJ1 = new ArrayList<>();
+    ArrayList<Soldado> SoldadosJ2 = new ArrayList<>();
 
     public int getRaza() {
         return raza;
@@ -63,11 +71,12 @@ public class Menu {
 
                 switch (opc1) {
                     case 1:
-                        Jugador J1 = new Jugador();
-                        Jugador J2 = new Jugador();
 
                         J1.setNombre(JOptionPane.showInputDialog("Ingrese el nombre del primer jugador:"));
                         J2.setNombre(JOptionPane.showInputDialog("Ingrese el nombre del segundo jugador:"));
+                        menuRazaJugador();
+                        break;
+
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Debes insertar un número");
@@ -79,7 +88,7 @@ public class Menu {
 
     public int menuRazaJugador() {
         while (opc1 != 4) {
-            System.out.println("Jugadore Creados, ahora seleccione la raza.");
+            System.out.println("JugadoreS Creados, ahora seleccione la raza.");
             System.out.println("1.R1");
             System.out.println("2. R2");
             System.out.println("3. R3");
@@ -91,19 +100,18 @@ public class Menu {
 
                 switch (opc1) {
                     case 1:
-
-                        this.raza = 1;
-                        System.out.println("Raza 1 seleccionada");
+                        J1.setRaza(1);
+                        menuCreacionSoldado();
                         break;
 
                     case 2:
-                        this.raza = 2;
-                        System.out.println("Raza 2 seleccionada");
+                        J1.setRaza(2);
+                        menuCreacionSoldado();
                         break;
 
                     case 3:
-                        this.raza = 1;
-                        System.out.println("Raza 1 seleccionada");
+                        J1.setRaza(3);
+                        menuCreacionSoldado();
                         break;
 
                 }
@@ -119,7 +127,7 @@ public class Menu {
     public int menuCreacionSoldado() {
         while (opc1 != 4) {
             System.out.println("Jugador Creado");
-            System.out.println("1.Crear Soldado");
+            System.out.println("1.Crear Escuadron");
             System.out.println("2. Opcion 2");
             System.out.println("3. Opcion 3");
             System.out.println("4. Salir");
@@ -129,18 +137,50 @@ public class Menu {
                 opc1 = sn.nextInt();
 
                 switch (opc1) {
-                    case 1:
-                        
 
+                    case 1:
+
+                        System.out.println("Creando Escuadron");
+
+                        if (J1.getRaza() == 1) {
+                            SoldadosJ1.add(FabricaSoldados.getEscuadron(TipoSoldado.ER1));
+
+                        }
+                        
+                        if (J1.getRaza() == 2) {
+                            SoldadosJ1.add(FabricaSoldados.getEscuadron(TipoSoldado.ER2));
+
+                        }
+                        
+                        if (J1.getRaza() == 3) {
+                            SoldadosJ1.add(FabricaSoldados.getEscuadron(TipoSoldado.ER3));
+
+                        }
 
                         System.out.println("Soldado creado");
+                        menuAtaque(); 
                         break;
 
                     case 2:
-                        while (opc1 != 4) {
-                            System.out.println("Has seleccionado la opcion 2");
-                            break;
+                        System.out.println("Creando Especialista");
+
+                        if (J1.getRaza() == 1) {
+                            SoldadosJ1.add(FabricaSoldados.getEspecialista(TipoSoldado.ESR1));
+
                         }
+                        
+                        if (J1.getRaza() == 2) {
+                            SoldadosJ1.add(FabricaSoldados.getEspecialista(TipoSoldado.ESR2));
+
+                        }
+                        
+                        if (J1.getRaza() == 3) {
+                            SoldadosJ1.add(FabricaSoldados.getEspecialista(TipoSoldado.ESR3));
+
+                        }
+
+                        System.out.println("Soldado creado");
+                        menuAtaque();
                         break;
                     case 3:
                         System.out.println("Has seleccionado la opcion 3");
@@ -175,9 +215,10 @@ public class Menu {
 
                 switch (opc1) {
                     case 1:
-                     
                         
-                        J1.setAtaque(E1.atacar());
+                        SoldadosJ1.set(setAtaque, element);
+
+                        J2.setAtaque(E1.atacar());
                         System.out.println("Soldado creado");
 
                         while (opc1 != 4) {
