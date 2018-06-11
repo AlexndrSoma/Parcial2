@@ -10,6 +10,7 @@ import static Menus.MenuRazaJugador.sn;
 import Milicia.FabricaSoldados;
 import Milicia.Soldado;
 import Milicia.TipoSoldado;
+import static Milicia.TipoSoldado.ER1;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
@@ -21,18 +22,23 @@ import java.util.ArrayList;
  */
 public class Menu {
 
+    int fase;
     int opc1;
     int opc2;
     int raza;
     int ataque;
     static Scanner sn = new Scanner(System.in);
     boolean salir = false;
+    int J1LP;
+    int J2LP;
+    
+    
 
     Jugador J1 = new Jugador();
     Jugador J2 = new Jugador();
 
-    ArrayList<Soldado> SoldadosJ1 = new ArrayList<>();
-    ArrayList<Soldado> SoldadosJ2 = new ArrayList<>();
+    ArrayList<Soldado> SoldadosJ1 = new ArrayList<Soldado>();
+    ArrayList<Soldado> SoldadosJ2 = new ArrayList<Soldado>();
 
     public int getRaza() {
         return raza;
@@ -128,7 +134,7 @@ public class Menu {
         while (opc1 != 4) {
             System.out.println("Jugador Creado");
             System.out.println("1.Crear Escuadron");
-            System.out.println("2. Opcion 2");
+            System.out.println("2. Crear Soldado Especialista");
             System.out.println("3. Opcion 3");
             System.out.println("4. Salir");
 
@@ -146,19 +152,19 @@ public class Menu {
                             SoldadosJ1.add(FabricaSoldados.getEscuadron(TipoSoldado.ER1));
 
                         }
-                        
+
                         if (J1.getRaza() == 2) {
                             SoldadosJ1.add(FabricaSoldados.getEscuadron(TipoSoldado.ER2));
 
                         }
-                        
+
                         if (J1.getRaza() == 3) {
                             SoldadosJ1.add(FabricaSoldados.getEscuadron(TipoSoldado.ER3));
 
                         }
 
                         System.out.println("Soldado creado");
-                        menuAtaque(); 
+                        menuAtaque();
                         break;
 
                     case 2:
@@ -168,12 +174,12 @@ public class Menu {
                             SoldadosJ1.add(FabricaSoldados.getEspecialista(TipoSoldado.ESR1));
 
                         }
-                        
+
                         if (J1.getRaza() == 2) {
                             SoldadosJ1.add(FabricaSoldados.getEspecialista(TipoSoldado.ESR2));
 
                         }
-                        
+
                         if (J1.getRaza() == 3) {
                             SoldadosJ1.add(FabricaSoldados.getEspecialista(TipoSoldado.ESR3));
 
@@ -202,52 +208,71 @@ public class Menu {
     }
 
     public int menuAtaque() {
-        while (opc1 != 4) {
-            System.out.println("Soldado Creado");
-            System.out.println("1.Atacar Jugador");
-            System.out.println("2. Opcion 2");
-            System.out.println("3. Opcion 3");
-            System.out.println("4. Salir");
+        
+        J1LP=J1.getLP();
+        J2LP=J2.getLP();
+        
 
-            try {
+        for (int i = 0;J2.getLP() >= 0 || J1.getLP() >= 0; i++) {
+            
+            J2LP=J2.getLP();
+            
+            while (opc1 != 4||J2LP>0) {
+                System.out.println("Soldado Creado");
+                System.out.println("Fase #" + fase + "del juego");
+                System.out.println("1.Atacar Jugador");
+                System.out.println("2. Opcion 2");
+                System.out.println("3. Opcion 3");
+                System.out.println("4. Salir");
 
-                opc1 = sn.nextInt();
+                try {
 
-                switch (opc1) {
-                    case 1:
-                        
-                        SoldadosJ1.set(setAtaque, element);
+                    opc1 = sn.nextInt();
 
-                        J2.setAtaque(E1.atacar());
-                        System.out.println("Soldado creado");
+                    switch (opc1) {
+                        case 1:
+                            while (opc1 != 4) {
+                                SoldadosJ1.get(0);
 
-                        while (opc1 != 4) {
-                            System.out.println("1.Atacar");
-                            opc1 = sn.nextInt();
-                        }
+                                SoldadosJ1.get(0).atacar();
 
-                    case 2:
-                        while (opc1 != 4) {
-                            System.out.println("Has seleccionado la opcion 2");
+                                J2.setAtaque(SoldadosJ1.get(0).atacar()); //*Setea ataque//
+
+                                J2.atacarLP();
+
+                                System.out.println("LP" + J2.getLP());
+
+                                System.out.println("Soldado creado");
+
+                                fase = fase + 1;
+
+                                break;
+                            }
+
+                        case 2:
+                            while (opc1 != 4) {
+                                System.out.println("Has seleccionado la opcion 2");
+                                break;
+                            }
                             break;
-                        }
-                        break;
-                    case 3:
-                        System.out.println("Has seleccionado la opcion 3");
-                        break;
-                    case 4:
-                        salir = true;
-                        break;
-                    default:
-                        System.out.println("Solo números entre 1 y 4");
-                }
-            } catch (InputMismatchException e) {
-                System.out.println("Debes insertar un número");
-                sn.next();
+                        case 3:
+                            System.out.println("Has seleccionado la opcion 3");
+                            break;
+                        case 4:
+                            salir = true;
+                            break;
+                        default:
+                            System.out.println("Solo números entre 1 y 4");
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("Debes insertar un número");
+                    sn.next();
 
+                }
             }
 
         }
+
         return 0;
     }
 }
