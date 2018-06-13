@@ -14,10 +14,12 @@ import Recursos.Recursos.RR3;
  *
  * @author alex
  */
-public class FabricaRecursos {
+public class FabricaRecursos { //CENTRO DE MANDO//
    
     int LP=5000;
-    int recurso;
+    int recurso1;
+    int recurso2;
+    int recurso3;
     int ataque;
 
     
@@ -52,7 +54,6 @@ public class FabricaRecursos {
     public static Recurso getRecurso(TipoRecurso type) {
         switch (type) {
             case RR1:
-                
                 return new RR1();
             case RR2:
                 return new RR2();

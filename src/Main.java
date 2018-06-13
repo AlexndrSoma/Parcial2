@@ -28,10 +28,7 @@ public class Main {
         Menu M1= new Menu();
         
         M1.menuInicio();
-        
-        M1.menuRazaJugador();
-        
-        M1.menuRazaJugador();
+   
         
         
     }
