@@ -5,18 +5,15 @@
  */
 package Vehiculos;
 
-import static Vehiculos.TipoVehiculo.VR1;
-import static Vehiculos.TipoVehiculo.VR2;
-import static Vehiculos.TipoVehiculo.VR3;
-import Vehiculos.Vehiculos.VR1;
-import Vehiculos.Vehiculos.VR2;
-import Vehiculos.Vehiculos.VR3;
+import Vehiculos.VehiculosTipo1.VT1R1;
+import Vehiculos.VehiculosTipo1.VT1R2;
+import Vehiculos.VehiculosTipo1.VT1R3;
 
 /**
  *
  * @author alex
  */
-public class FabricaVehiculos {
+public class FabricaVehiculosTipo1 {
    
     int LP=5000;
     int ataque;
@@ -51,20 +48,15 @@ public class FabricaVehiculos {
     
     public static Vehiculo getVehiculo(TipoVehiculo type) {
         switch (type) {
-            case VR1:
-                return new VR1();
-            case VR2:
-                return new VR2();
-            case VR3:
-                return new VR3();
+            case VT1R1:
+                return new VT1R1();
+            case VT1R2:
+                return new VT1R2();
+            case VT1R3:
+                return new VT1R3();
         }
         return null;
 }
     
    
 }
-
-        
-    
-    
-    

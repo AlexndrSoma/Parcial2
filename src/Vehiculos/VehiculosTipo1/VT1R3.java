@@ -3,13 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Vehiculos;
+package Vehiculos.VehiculosTipo1;
+
+import Vehiculos.Vehiculo;
 
 /**
  *
  * @author alex
  */
-public enum TipoVehiculo {
-    VT1R1,VT1R2,VT1R3,VT2R1,VT2R2,VT2R3;
+public class VT1R3 implements Vehiculo {
+    
+          @Override
+   public int atacar(){
+        int ataque=500;
+
+  
+        return ataque;
+    }
     
 }

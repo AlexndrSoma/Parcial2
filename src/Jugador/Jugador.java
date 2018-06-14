@@ -15,12 +15,13 @@ public class Jugador {
     int raza;
     int LP = 5000;
     int ataque;
-    int recurso1=1000;
+    int recurso1=10000;
     int recurso2=5000;
     int recurso3=3000;
     boolean fabricaSoldados=false;
-    boolean fabricaVehivulos=false;
-    int fase;
+    boolean fabricaVehiculosTipo1=false;
+    boolean fabricaVehiculosTipo2=false;
+    int fase=1;
 
     public String getNombre() {
         return nombre;
@@ -104,15 +105,23 @@ public class Jugador {
         this.fabricaSoldados = fabricaSoldados;
     }
 
-    public boolean isFabricaVehivulos() {
-        return fabricaVehivulos;
+    public boolean isFabricaVehiculosTipo1() {
+        return fabricaVehiculosTipo1;
     }
 
-    public void setFabricaVehivulos(boolean fabricaVehivulos) {
-        this.fabricaVehivulos = fabricaVehivulos;
+    public void setFabricaVehiculosTipo1(boolean fabricaVehiculosTipo1) {
+        this.fabricaVehiculosTipo1 = fabricaVehiculosTipo1;
     }
-    
-    
+
+    public boolean isFabricaVehiculosTipo2() {
+        return fabricaVehiculosTipo2;
+    }
+
+    public void setFabricaVehiculosTipo2(boolean fabricaVehiculosTipo2) {
+        this.fabricaVehiculosTipo2 = fabricaVehiculosTipo2;
+    }
+
+
     
     
 

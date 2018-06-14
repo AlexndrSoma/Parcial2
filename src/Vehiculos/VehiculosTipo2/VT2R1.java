@@ -3,16 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Vehiculos.Vehiculos;
+package Vehiculos.VehiculosTipo2;
 
 import Vehiculos.Vehiculo;
-
 
 /**
  *
  * @author alex
  */
-public class VR1 implements Vehiculo {
+public class VT2R1 implements Vehiculo {
     
           @Override
    public int atacar(){

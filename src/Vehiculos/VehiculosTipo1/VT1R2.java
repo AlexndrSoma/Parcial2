@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Vehiculos.Vehiculos;
+package Vehiculos.VehiculosTipo1;
 
 import Vehiculos.Vehiculo;
 
@@ -11,7 +11,7 @@ import Vehiculos.Vehiculo;
  *
  * @author alex
  */
-public class VR2 implements Vehiculo {
+public class VT1R2 implements Vehiculo {
     
           @Override
    public int atacar(){
