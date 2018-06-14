@@ -10,9 +10,9 @@ import Milicia.FabricaSoldados;
 import Milicia.Soldado;
 import Milicia.TipoSoldado;
 import static Milicia.TipoSoldado.ER1;
-import Recursos.FabricaRecursos;
-import Recursos.Recurso;
-import Recursos.TipoRecurso;
+import Recursos.FabricaRecursos1;
+import Recursos.FabricaRecursos2;
+import Recursos.FabricaRecursos3;
 import Vehiculos.Vehiculo;
 import static java.time.Clock.system;
 import java.util.InputMismatchException;
@@ -75,15 +75,19 @@ public class Menu {
     public int menuInicio() {
 
         while (!salir) {
-
+            System.out.println("");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+            System.out.println("");
             System.out.println("1. Iniciar Juego");
             System.out.println("2. Putorial");
             System.out.println("3. Opcion 3");
             System.out.println("4. Salir");
+            System.out.println("");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
 
             try {
 
-                System.out.println("Escribe una de las opciones");
+                System.out.println("Opcion:");
                 opc1 = sn.nextInt();
 
                 switch (opc1) {
@@ -113,12 +117,19 @@ public class Menu {
         while (opc1 != 4) {
 
             try {
-                System.out.println(J1.getNombre() + ", elige tu raza:");
+                System.out.println("");
+                System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+                System.out.println("");
+                System.out.println(J1.getNombre() + ", elige tu raza: ");
+                System.out.println("");
                 System.out.println("1.R1");
                 System.out.println("2. R2");
                 System.out.println("3. R3");
                 System.out.println("4. Salir");
+                System.out.println("");
+                System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
 
+                System.out.println("Opcion:");
                 opc1 = sn.nextInt();
                 switch (opc1) {
                     case 1:
@@ -153,29 +164,38 @@ public class Menu {
         while (opc1 != 4) {
 
             try {
-                System.out.println(J2.getNombre() + "ELige tu raza");
+                System.out.println("");
+                System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+                System.out.println(J2.getNombre() + ", elige tu raza:");
+                System.out.println("");
                 System.out.println("1.R1");
                 System.out.println("2. R2");
                 System.out.println("3. R3");
                 System.out.println("4. Salir");
+                System.out.println("");
+                System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
 
+                System.out.println("Opcion:");
                 opc1 = sn.nextInt();
                 switch (opc1) {
                     case 1:
                         J2.setRaza(1);
-                        System.out.println(":.:.:||INICIA EL JUEGO||:.:.:");
+                        System.out.println(".:.:.:.:.:.:.:.:.:||INICIA EL JUEGO||:.:.:.:.:.:.:.:.:.");
+                        System.out.println("");
                         menuJuegoJ1();
                         break;
 
                     case 2:
                         J2.setRaza(2);
-                        System.out.println(":.:.:||INICIA EL JUEGO||:.:.:");
+                        System.out.println(".:.:.:.:.:.:.:.:.:||INICIA EL JUEGO||:.:.:.:.:.:.:.:.:.");
+                        System.out.println("");
                         menuJuegoJ1();
                         break;
 
                     case 3:
                         J2.setRaza(3);
-                        System.out.println(":.:.:||INICIA EL JUEGO||:.:.:");
+                        System.out.println(".:.:.:.:.:.:.:.:.:||INICIA EL JUEGO||:.:.:.:.:.:.:.:.:.");
+                        System.out.println("");
                         menuJuegoJ1();
                         break;
                 }
@@ -191,23 +211,30 @@ public class Menu {
 
     public int menuJuegoJ1() {
         while (opc1 != 6) {
-            System.out.println(":.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+            System.out.println("");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+            System.out.println("");
             System.out.println("TURNO DE: " + J1.getNombre() + ", FASE: " + J1.getFase());
+            System.out.println("");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+            System.out.println("");
             System.out.println("Recurso 1 de " + ":" + J1.getRecurso1());
             System.out.println("Recurso 2 de " + ":" + J1.getRecurso2());
             System.out.println("Recurso 3 de " + ":" + J1.getRecurso3());
-            System.out.println(":.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+            System.out.println("");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+            System.out.println("");
             System.out.println("1.Crear Edificios");
             System.out.println("2. Crear Milicia");
             System.out.println("3. Atacar Edificio");
             System.out.println("4. Atacar Milicia");
             System.out.println("5. Terminar turno.");
             System.out.println("6. Salir");
-            System.out.println(":.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
             System.out.println("");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
 
             try {
-
+                System.out.println("Opcion:");
                 opc1 = sn.nextInt();
 
                 switch (opc1) {
@@ -228,6 +255,18 @@ public class Menu {
 
                     case 5:
                         J1.setFase(J1.getFase() + 1);
+                        
+                        if(J1.isFabricaRecursosTipo1()==true){
+                            J1.setRecurso1(J1.getRecurso1()+J1.getGenerarRecurso1());
+                        }
+                        
+                        if(J1.isFabricaRecursosTipo2()==true){
+                            J1.setRecurso2(J1.getRecurso2()+J1.getGenerarRecurso2());
+                        }
+                        
+                        if(J1.isFabricaRecursosTipo3()==true){
+                            J1.setRecurso3(J1.getRecurso3()+J1.getGenerarRecurso3());
+                        }
                         menuJuegoJ2();
 
                     default:
@@ -246,23 +285,30 @@ public class Menu {
     public int menuJuegoJ2() {
         while (opc1 != 6) {
 
-            System.out.println(":.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+            System.out.println("");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+            System.out.println("");
             System.out.println("TURNO DE: " + J2.getNombre() + ", FASE: " + J2.getFase());
+            System.out.println("");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+            System.out.println("");
             System.out.println("Recurso 1 de " + ":" + J2.getRecurso1());
             System.out.println("Recurso 2 de " + ":" + J2.getRecurso2());
             System.out.println("Recurso 3 de " + ":" + J2.getRecurso3());
-            System.out.println(":.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+            System.out.println("");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+            System.out.println("");
             System.out.println("1.Crear Edificios");
             System.out.println("2. Crear Milicia");
             System.out.println("3. Atacar Edificio");
             System.out.println("4. Atacar Milicia");
             System.out.println("5. Terminar turno.");
             System.out.println("6. Salir");
-            System.out.println(":.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
             System.out.println("");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
 
             try {
-
+                System.out.println("Opcion:");
                 opc1 = sn.nextInt();
 
                 switch (opc1) {
@@ -284,6 +330,18 @@ public class Menu {
                     case 5:
 
                         J2.setFase(J2.getFase() + 1);
+                        
+                        if(J2.isFabricaRecursosTipo1()==true){
+                            J2.setRecurso1(J2.getRecurso1()+J2.getGenerarRecurso1());
+                        }
+                        
+                        if(J2.isFabricaRecursosTipo2()==true){
+                            J2.setRecurso2(J2.getRecurso2()+J2.getGenerarRecurso2());
+                        }
+                        
+                        if(J2.isFabricaRecursosTipo3()==true){
+                            J2.setRecurso3(J2.getRecurso3()+J2.getGenerarRecurso3());
+                        }
                         menuJuegoJ1();
 
                     default:
@@ -300,20 +358,23 @@ public class Menu {
     }
 
     public int menuCreacionEdificiosJ1() {
-        while (opc1 != 6) {
+        while (opc1 != 7) {
 
-            System.out.println(":.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+            System.out.println("");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
             System.out.println("CREAR EDIFICACIONES");
             System.out.println("Recurso 1 de " + ":" + J1.getRecurso1());
             System.out.println("Recurso 2 de " + ":" + J1.getRecurso2());
             System.out.println("Recurso 3 de " + ":" + J1.getRecurso3());
-            System.out.println(":.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
-            System.out.println("1.Crear Fabrica de Soldados(Costo:5000)");
-            System.out.println("2. Crear Fabrica de Vehiculos Tipo1");
-            System.out.println("3. Crear Fabrica de Vehiculos Tipo2");
-            System.out.println("4. Menu Creacion de Milicia");
-            System.out.println("5. Regresar.");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+            System.out.println("1. Crear Fabrica de Recursos");
+            System.out.println("2. Crear Fabrica de Soldados(Costo:5000)");
+            System.out.println("3. Crear Fabrica de Vehiculos Tipo1");
+            System.out.println("4. Crear Fabrica de Vehiculos Tipo2");
+            System.out.println("5. Regresar");
             System.out.println("6. Salir");
+            System.out.println("");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
 
             try {
 
@@ -322,34 +383,17 @@ public class Menu {
                 switch (opc1) {
 
                     case 1:
-
-                        System.out.println("Creando Fabrica de Soldados");
-                        if (J1.getRecurso1() >= 10000 && J1.getRecurso3() >= 3000) {
-                            J1.setFabricaSoldados(true);
-                            System.out.println("Fabrica de Soldados creada");
-                            J1.setRecurso1(J1.getRecurso1() - 10000);
-                            J1.setRecurso3(J1.getRecurso3() - 3000);
-
-                            System.out.println("Recursos actuales:");
-                            System.out.println("Recurso 1 de " + ":" + J1.getRecurso1());
-                            System.out.println("Recurso 2 de " + ":" + J1.getRecurso2());
-                            System.out.println("Recurso 3 de " + ":" + J1.getRecurso3());
-
-                            break;
-                        } else {
-                            System.out.println("No dispones de recursos suficientes");
-                            break;
-
-                        }
+                        menuFabricaRecursosJ1();
+                        break;
 
                     case 2:
 
-                        System.out.println("Creando Fabrica de Vehiculos Tipo1");
-                        if (J1.getRecurso2() >= 5000 && J1.getRecurso3() >= 3000) {
-                            J1.setFabricaVehiculosTipo1(true);
-                            System.out.println("Fabrica de Vehiculos Tipo 1 creada");
-                            J1.setRecurso2(J1.getRecurso1() - 5000);
-                            J1.setRecurso3(J1.getRecurso3() - 3000);
+                        System.out.println("Creando Fabrica de Soldados");
+                        if (J1.getRecurso1() >= 2000 && J1.getRecurso2() >= 1000) {
+                            J1.setFabricaSoldados(true);
+                            System.out.println("Fabrica de Soldados creada");
+                            J1.setRecurso1(J1.getRecurso1() - 2000);
+                            J1.setRecurso2(J1.getRecurso2() - 1000);
 
                             System.out.println("Recursos actuales:");
                             System.out.println("Recurso 1 de " + ":" + J1.getRecurso1());
@@ -364,12 +408,13 @@ public class Menu {
                         }
 
                     case 3:
-                        System.out.println("Creando Fabrica de Vehiculos Tipo2");
-                        if (J1.getRecurso2() >= 5000 && J1.getRecurso3() >= 3000) {
-                            J1.setFabricaVehiculosTipo2(true);
-                            System.out.println("Fabrica de Vehiculos Tipo 2 creada");
-                            J1.setRecurso2(J1.getRecurso1() - 5000);
-                            J1.setRecurso3(J1.getRecurso3() - 3000);
+
+                        System.out.println("Creando Fabrica de Vehiculos Tipo1");
+                        if (J1.getRecurso2() >= 1000 && J1.getRecurso3() >= 600) {
+                            J1.setFabricaVehiculosTipo1(true);
+                            System.out.println("Fabrica de Vehiculos Tipo 1 creada");
+                            J1.setRecurso2(J1.getRecurso2() - 1000);
+                            J1.setRecurso3(J1.getRecurso3() - 600);
 
                             System.out.println("Recursos actuales:");
                             System.out.println("Recurso 1 de " + ":" + J1.getRecurso1());
@@ -384,10 +429,31 @@ public class Menu {
                         }
 
                     case 4:
+                        System.out.println("Creando Fabrica de Vehiculos Tipo2");
+                        if (J1.getRecurso1() >= 4000 && J1.getRecurso2() >= 2000 && J1.getRecurso3() >= 600) {
+                            J1.setFabricaVehiculosTipo2(true);
+                            System.out.println("Fabrica de Vehiculos Tipo 2 creada");
+                            J1.setRecurso1(J1.getRecurso1() - 4000);
+                            J1.setRecurso2(J1.getRecurso2() - 2000);
+                            J1.setRecurso3(J1.getRecurso3() - 600);
+
+                            System.out.println("Recursos actuales:");
+                            System.out.println("Recurso 1 de " + ":" + J1.getRecurso1());
+                            System.out.println("Recurso 2 de " + ":" + J1.getRecurso2());
+                            System.out.println("Recurso 3 de " + ":" + J1.getRecurso3());
+
+                            break;
+                        } else {
+                            System.out.println("No dispones de recursos suficientes");
+                            break;
+
+                        }
+
+                    case 5:
                         menuCreacionEdificiosJ2();
                         break;
 
-                    case 5:
+                    case 6:
                         menuJuegoJ1();
                         break;
                     default:
@@ -402,21 +468,26 @@ public class Menu {
         }
         return opc1;
     }
-public int menuCreacionEdificiosJ2() {
-        while (opc1 != 6) {
 
-            System.out.println(":.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+    public int menuCreacionEdificiosJ2() {
+        while (opc1 != 7) {
+
+            System.out.println("");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
             System.out.println("CREAR EDIFICACIONES");
             System.out.println("Recurso 1 de " + ":" + J2.getRecurso1());
             System.out.println("Recurso 2 de " + ":" + J2.getRecurso2());
             System.out.println("Recurso 3 de " + ":" + J2.getRecurso3());
-            System.out.println(":.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
-            System.out.println("1.Crear Fabrica de Soldados(Costo:5000)");
-            System.out.println("2. Crear Fabrica de Vehiculos Tipo1");
-            System.out.println("3. Crear Fabrica de Vehiculos Tipo2");
-            System.out.println("4. Menu Creacion de Milicia");
-            System.out.println("5. Regresar.");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+            System.out.println("1. Crear Fabrica de Recursos");
+            System.out.println("2. Crear Fabrica de Soldados(Costo:5000)");
+            System.out.println("3. Crear Fabrica de Vehiculos Tipo1");
+            System.out.println("4. Crear Fabrica de Vehiculos Tipo2");
+            System.out.println("5. Regresar");
             System.out.println("6. Salir");
+            System.out.println("");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
 
             try {
 
@@ -425,34 +496,17 @@ public int menuCreacionEdificiosJ2() {
                 switch (opc1) {
 
                     case 1:
-
-                        System.out.println("Creando Fabrica de Soldados");
-                        if (J2.getRecurso1() >= 10000 && J2.getRecurso3() >= 3000) {
-                            J2.setFabricaSoldados(true);
-                            System.out.println("Fabrica de Soldados creada");
-                            J2.setRecurso1(J2.getRecurso1() - 10000);
-                            J2.setRecurso3(J2.getRecurso3() - 3000);
-
-                            System.out.println("Recursos actuales:");
-                            System.out.println("Recurso 1 de " + ":" + J2.getRecurso1());
-                            System.out.println("Recurso 2 de " + ":" + J2.getRecurso2());
-                            System.out.println("Recurso 3 de " + ":" + J2.getRecurso3());
-
-                            break;
-                        } else {
-                            System.out.println("No dispones de recursos suficientes");
-                            break;
-
-                        }
+                        menuFabricaRecursosJ2();
+                        break;
 
                     case 2:
 
-                        System.out.println("Creando Fabrica de Vehiculos Tipo1");
-                        if (J2.getRecurso2() >= 5000 && J2.getRecurso3() >= 3000) {
-                            J2.setFabricaVehiculosTipo1(true);
-                            System.out.println("Fabrica de Vehiculos Tipo 1 creada");
-                            J2.setRecurso2(J2.getRecurso1() - 5000);
-                            J2.setRecurso3(J2.getRecurso3() - 3000);
+                        System.out.println("Creando Fabrica de Soldados");
+                        if (J2.getRecurso1() >= 2000 && J2.getRecurso2() >= 1000) {
+                            J2.setFabricaSoldados(true);
+                            System.out.println("Fabrica de Soldados creada");
+                            J2.setRecurso1(J2.getRecurso1() - 2000);
+                            J2.setRecurso2(J2.getRecurso2() - 1000);
 
                             System.out.println("Recursos actuales:");
                             System.out.println("Recurso 1 de " + ":" + J2.getRecurso1());
@@ -467,12 +521,13 @@ public int menuCreacionEdificiosJ2() {
                         }
 
                     case 3:
-                        System.out.println("Creando Fabrica de Vehiculos Tipo2");
-                        if (J2.getRecurso2() >= 5000 && J2.getRecurso3() >= 3000) {
-                            J2.setFabricaVehiculosTipo2(true);
-                            System.out.println("Fabrica de Vehiculos Tipo 2 creada");
-                            J2.setRecurso2(J2.getRecurso1() - 5000);
-                            J2.setRecurso3(J2.getRecurso3() - 3000);
+
+                        System.out.println("Creando Fabrica de Vehiculos Tipo1");
+                        if (J2.getRecurso2() >= 1000 && J2.getRecurso3() >= 600) {
+                            J2.setFabricaVehiculosTipo1(true);
+                            System.out.println("Fabrica de Vehiculos Tipo 1 creada");
+                            J2.setRecurso2(J2.getRecurso2() - 1000);
+                            J2.setRecurso3(J2.getRecurso3() - 600);
 
                             System.out.println("Recursos actuales:");
                             System.out.println("Recurso 1 de " + ":" + J2.getRecurso1());
@@ -487,10 +542,31 @@ public int menuCreacionEdificiosJ2() {
                         }
 
                     case 4:
+                        System.out.println("Creando Fabrica de Vehiculos Tipo2");
+                        if (J2.getRecurso1() >= 4000 && J2.getRecurso2() >= 2000 && J2.getRecurso3() >= 600) {
+                            J2.setFabricaVehiculosTipo2(true);
+                            System.out.println("Fabrica de Vehiculos Tipo 2 creada");
+                            J2.setRecurso1(J2.getRecurso1() - 4000);
+                            J2.setRecurso2(J2.getRecurso2() - 2000);
+                            J2.setRecurso3(J2.getRecurso3() - 600);
+
+                            System.out.println("Recursos actuales:");
+                            System.out.println("Recurso 1 de " + ":" + J2.getRecurso1());
+                            System.out.println("Recurso 2 de " + ":" + J2.getRecurso2());
+                            System.out.println("Recurso 3 de " + ":" + J2.getRecurso3());
+
+                            break;
+                        } else {
+                            System.out.println("No dispones de recursos suficientes");
+                            break;
+
+                        }
+
+                    case 5:
                         menuCreacionEdificiosJ2();
                         break;
 
-                    case 5:
+                    case 6:
                         menuJuegoJ2();
                         break;
                     default:
@@ -506,16 +582,202 @@ public int menuCreacionEdificiosJ2() {
         return opc1;
     }
 
+    public int menuFabricaRecursosJ1() {
+        while (opc1 != 4) {
+            System.out.println("");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+            System.out.println("ALMACENES DE RECURSOS");
+            System.out.println("Recurso 1 de " + ":" + J1.getRecurso1());
+            System.out.println("Recurso 2 de " + ":" + J1.getRecurso2());
+            System.out.println("Recurso 3 de " + ":" + J1.getRecurso3());
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+            System.out.println("1.Crear almacen de petroleo");
+            System.out.println("2. Crear almacen para metales de construccion");
+            System.out.println("3. Crear planta nuclear");
+            System.out.println("4. Regresar");
+            System.out.println("");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+
+            try {
+                System.out.println("Opcion:");
+                opc1 = sn.nextInt();
+
+                switch (opc1) {
+
+                    case 1:
+
+                        System.out.println("Creando Almacen de Petroleo");
+                        System.out.println("...");
+                        System.out.println("...");
+                        if (J1.getRecurso1() >= 500 && J1.getRecurso2() >= 250) {
+                            J1.setFabricaRecursosTipo1(true);
+                            System.out.println("ALMACEN DE PETROLEO CREADO.");
+                            J1.setRecurso1(J1.getRecurso1() - 500);
+                            J1.setRecurso2(J1.getRecurso2() - 250);
+
+                            break;
+                        } else {
+                            System.out.println("No dispones de recursos suficientes");
+                            break;
+
+                        }
+
+                    case 2:
+                        System.out.println("Creando Almacen para Metales de construccion");
+                        if (J1.getRecurso2() >= 250 && J1.getRecurso3() >= 300) {
+                            J1.setFabricaRecursosTipo2(true);
+                            System.out.println("...");
+                            System.out.println("...");
+                            System.out.println("ALMACEN PARA METALES DE CONSTRUCCION CREADO");
+                            J1.setRecurso2(J1.getRecurso2() - 250);
+                            J1.setRecurso3(J1.getRecurso3() - 300);
+
+                            break;
+                        } else {
+                            System.out.println("No dispones de recursos suficientes");
+                            break;
+
+                        }
+                    case 3:
+                        System.out.println("Creando Planta Nuclear");
+                        if (J1.getRecurso1() >= 1000 && J1.getRecurso2() >= 500 && J1.getRecurso3() >= 300) {
+                            J1.setFabricaRecursosTipo3(true);
+                            System.out.println("...");
+                            System.out.println("...");
+                            System.out.println("PLANTA NUCLEAR CREADA");
+                            J1.setRecurso1(J1.getRecurso1() - 1000);
+                            J1.setRecurso2(J1.getRecurso2() - 500);
+                            J1.setRecurso3(J1.getRecurso3() - 300);
+
+                            break;
+                        } else {
+                            System.out.println("No dispones de recursos suficientes");
+                            break;
+
+                        }
+
+                    case 4:
+                        menuJuegoJ1();
+
+                    default:
+                        System.out.println("Solo números entre 1 y 4");
+
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Debes insertar un número");
+                sn.next();
+            }
+        }
+        return opc1;
+    }
+
+    public int menuFabricaRecursosJ2() {
+        while (opc1 != 4) {
+            System.out.println("");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+            System.out.println("ALMACENES DE RECURSOS");
+            System.out.println("Recurso 1 de " + ":" + J2.getRecurso1());
+            System.out.println("Recurso 2 de " + ":" + J2.getRecurso2());
+            System.out.println("Recurso 3 de " + ":" + J2.getRecurso3());
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+            System.out.println("1.Crear almacen de petroleo");
+            System.out.println("2. Crear almacen para metales de construccion");
+            System.out.println("3. Crear planta nuclear");
+            System.out.println("4. Regresar");
+            System.out.println("");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+
+            try {
+                System.out.println("Opcion: ");
+                opc1 = sn.nextInt();
+
+                switch (opc1) {
+
+                    case 1:
+
+                        System.out.println("Creando Almacen de Petroleo");
+                        if (J2.getRecurso1() >= 500 && J2.getRecurso2() >= 250) {
+                            J2.setFabricaRecursosTipo1(true);
+                            System.out.println("...");
+                            System.out.println("...");
+                            System.out.println("ALMACEN DE PETROLEO CREADO");
+                            J2.setRecurso1(J2.getRecurso1() - 500);
+                            J2.setRecurso2(J2.getRecurso2() - 250);
+
+                            break;
+                        } else {
+                            System.out.println("No dispones de recursos suficientes");
+                            break;
+
+                        }
+
+                    case 2:
+                        System.out.println("Creando Almacen para Metales de construccion");
+                        if (J2.getRecurso2() >= 250 && J2.getRecurso3() >= 300) {
+                            J2.setFabricaRecursosTipo2(true);
+                            System.out.println("...");
+                            System.out.println("...");
+                            System.out.println("ALMACEN PARA METALES CREADO");
+                            J2.setRecurso2(J2.getRecurso2() - 250);
+                            J2.setRecurso3(J2.getRecurso3() - 300);
+
+                            break;
+                        } else {
+                            System.out.println("No dispones de recursos suficientes");
+                            break;
+
+                        }
+                    case 3:
+                        System.out.println("Creando Planta Nuclear");
+                        if (J2.getRecurso1() >= 1000 && J2.getRecurso2() >= 500 && J2.getRecurso3() >= 300) {
+                            J2.setFabricaRecursosTipo3(true);
+                            System.out.println("...");
+                            System.out.println("...");
+                            System.out.println("PLANTA NUCLEAR CREADA");
+                            J2.setRecurso1(J2.getRecurso1() - 1000);
+                            J2.setRecurso2(J2.getRecurso2() - 500);
+                            J2.setRecurso3(J2.getRecurso3() - 300);
+
+                            break;
+                        } else {
+                            System.out.println("No dispones de recursos suficientes");
+                            break;
+
+                        }
+
+                    case 4:
+                        menuJuegoJ2();
+
+                    default:
+                        System.out.println("Solo números entre 1 y 4");
+
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Debes insertar un número");
+                sn.next();
+            }
+        }
+        return opc1;
+    }
+
     public int menuCreacionSoldadoJ1() {
         while (opc1 != 4) {
+            System.out.println("");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
             System.out.println("CREAR SOLDADOS");
+            System.out.println("Recurso 1 de " + ":" + J1.getRecurso1());
+            System.out.println("Recurso 2 de " + ":" + J1.getRecurso2());
+            System.out.println("Recurso 3 de " + ":" + J1.getRecurso3());
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
             System.out.println("1.Crear Escuadron");
             System.out.println("2. Crear Soldado Especialista");
             System.out.println("3. Regresar");
             System.out.println("4. Salir");
+            System.out.println("");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
 
             try {
-
+                System.out.println("Opcion:");
                 opc1 = sn.nextInt();
 
                 switch (opc1) {
@@ -540,7 +802,7 @@ public int menuCreacionEdificiosJ2() {
                         }
 
                         System.out.println("Soldado creado");
-            
+
                         break;
 
                     case 2:
@@ -562,7 +824,7 @@ public int menuCreacionEdificiosJ2() {
                         }
 
                         System.out.println("Soldado creado");
-                   
+
                         break;
                     case 3:
                         menuJuegoJ1();
@@ -586,14 +848,23 @@ public int menuCreacionEdificiosJ2() {
 
     public int menuCreacionSoldadoJ2() {
         while (opc1 != 4) {
+            System.out.println("");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+            System.out.println("CREAR SOLDADOS");
+            System.out.println("Recurso 1 de " + ":" + J2.getRecurso1());
+            System.out.println("Recurso 2 de " + ":" + J2.getRecurso2());
+            System.out.println("Recurso 3 de " + ":" + J2.getRecurso3());
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
             System.out.println("Jugadores Creado");
             System.out.println("1.Crear Escuadron");
             System.out.println("2. Crear Soldado Especialista");
             System.out.println("3. Opcion 3");
             System.out.println("4. Salir");
+            System.out.println("");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
 
             try {
-
+                System.out.println("Opcion:");
                 opc1 = sn.nextInt();
 
                 switch (opc1) {
