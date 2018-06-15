@@ -15,6 +15,7 @@ public class FabricaRecursos2 {
     int LP=5000;
     int recurso2;
     int ataque;
+    boolean activada = false;
 
     
     public void setLP(int LP) {
@@ -56,6 +57,14 @@ public class FabricaRecursos2 {
 
     public int getAtaque() {
         return ataque;
+    }
+
+    public boolean isActivada() {
+        return activada;
+    }
+
+    public void setActivada(boolean activada) {
+        this.activada = activada;
     }
 
     

@@ -15,7 +15,8 @@ public class FabricaRecursos1 {
     int recurso1;
     int ataque;
     int fase;
-
+    boolean activada = false;
+    
     public void setLP(int LP) {
 
         this.LP = LP;
@@ -65,5 +66,15 @@ public class FabricaRecursos1 {
         this.fase = fase;
 
     }
+
+    public boolean isActivada() {
+        return activada;
+    }
+
+    public void setActivada(boolean activada) {
+        this.activada = activada;
+    }
+    
+    
 
 }

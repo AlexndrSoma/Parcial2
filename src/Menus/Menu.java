@@ -45,6 +45,14 @@ public class Menu {
     ArrayList<Soldado> SoldadosJ2Muertos = new ArrayList<>();
     ArrayList<Vehiculo> VehiculosJ1 = new ArrayList<>();
     ArrayList<Vehiculo> VehiculosJ2 = new ArrayList<>();
+    
+    FabricaRecursos1 FR1J1 = new FabricaRecursos1();
+    FabricaRecursos2 FR2J1 = new FabricaRecursos2();
+    FabricaRecursos3 FR3J1 = new FabricaRecursos3();
+    
+    FabricaRecursos1 FR1J2 = new FabricaRecursos1();
+    FabricaRecursos2 FR2J2 = new FabricaRecursos2();
+    FabricaRecursos3 FR3J2 = new FabricaRecursos3();
 
     public int getFase() {
         return fase;
@@ -604,6 +612,7 @@ public class Menu {
                     System.out.println("Creando Fabrica de Soldados");
                     if (J1.getRecurso1() >= 2000 && J1.getRecurso2() >= 1000) {
                         J1.setFabricaSoldados(true);
+                        
                         System.out.println("Fabrica de Soldados creada");
                         J1.setRecurso1(J1.getRecurso1() - 2000);
                         J1.setRecurso2(J1.getRecurso2() - 1000);
@@ -850,6 +859,8 @@ public class Menu {
                     System.out.println("...");
                     if (J1.getRecurso1() >= 500 && J1.getRecurso2() >= 250) {
                         J1.setFabricaRecursosTipo1(true);
+                        FR1J1.setActivada(true);
+        
                         System.out.println("ALMACEN DE PETROLEO CREADO.");
                         J1.setRecurso1(J1.getRecurso1() - 500);
                         J1.setRecurso2(J1.getRecurso2() - 250);
@@ -867,6 +878,8 @@ public class Menu {
                     System.out.println("Creando Almacen para Metales de construccion");
                     if (J1.getRecurso2() >= 250 && J1.getRecurso3() >= 300) {
                         J1.setFabricaRecursosTipo2(true);
+                        FR2J1.setActivada(true);
+                
                         System.out.println("...");
                         System.out.println("...");
                         System.out.println("ALMACEN PARA METALES DE CONSTRUCCION CREADO");
@@ -884,6 +897,8 @@ public class Menu {
                     System.out.println("Creando Planta Nuclear");
                     if (J1.getRecurso1() >= 1000 && J1.getRecurso2() >= 500 && J1.getRecurso3() >= 300) {
                         J1.setFabricaRecursosTipo3(true);
+                        FR3J1.setActivada(true);
+                   
                         System.out.println("...");
                         System.out.println("...");
                         System.out.println("PLANTA NUCLEAR CREADA");
@@ -1347,7 +1362,21 @@ public class Menu {
                         if (elemento1.getLP() > 0) {
                             SoldadosJ1Vivos.add(elemento1);
                         }
-                    }
+                        
+                       if(FR1J1.isActivada()==true){
+                           FR1J1.setAtaque(SoldadosJ1Vivos.size()*500);
+                           FR1J1.atacarLP();
+                           
+                           if(FR1J1.getLP()==0){
+                               FR1J1.setActivada(false);
+                           }
+                       }
+                           
+         
+                       }
+                                
+                        
+                    
 
                     IteradorSoldadosJ2 = SoldadosJ2.iterator();
                     while (IteradorSoldadosJ2.hasNext()) {
@@ -1397,86 +1426,7 @@ public class Menu {
         return 0;
     }
 
-    public int menuAtaqueJ2() {
 
-        for (int i = 1; i != 0; i++) {
-
-            System.out.println(J2LP);
-            J2LP = J2.getLP();
-
-            while (opc1 != 4 || salir != false) {
-
-                J1LP = J1.getLP();
-                J2LP = J2.getLP();
-
-                System.out.println("Fase #" + fase + "del juego");
-                System.out.println("1.Atacar Jugador");
-                System.out.println("2. Opcion 2");
-                System.out.println("3. Opcion 3");
-                System.out.println("4. Salir");
-
-                try {
-
-                    opc1 = sn.nextInt();
-
-                    switch (opc1) {
-                        case 1:
-                            while (opc1 != 4) {
-                                SoldadosJ1.get(0);
-
-                                SoldadosJ1.get(0).atacar();
-
-                                SoldadosJ1.get(i)
-
-                                J2.setAtaque(SoldadosJ1.get(0).atacar()); //*Setea ataque//
-
-                                J2.atacarLP();
-
-                                System.out.println("LP" + J2.getLP());
-
-                                J2LP = J2.getLP();
-
-                                System.out.println("VARIABLE J2LP" + J2LP);
-
-                                System.out.println("Soldado creado");
-
-                                fase = fase + 1;
-
-                                if (J1.getLP() <= 0 || J2.getLP() <= 0) {
-                                    finJuego();
-
-                                }
-                                break;
-
-                            }
-                            break;
-
-                        case 2:
-
-                            System.out.println("Has seleccionado la opcion 2");
-
-                            break;
-                        case 3:
-                            System.out.println("Has seleccionado la opcion 3");
-                            break;
-                        case 4:
-                            salir = true;
-
-                            System.exit(0);
-                            break;
-                        default:
-                            System.out.println("Solo números entre 1 y 4");
-                    }
-                } catch (InputMismatchException e) {
-                    System.out.println("Debes insertar un número");
-                    sn.next();
-
-                }
-            }
-
-        }
-        return 0;
-    }
 
     public int finJuego() {
 
