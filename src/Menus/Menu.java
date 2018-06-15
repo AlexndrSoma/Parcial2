@@ -19,6 +19,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  *
@@ -32,8 +33,6 @@ public class Menu {
     int ataque;
     static Scanner sn = new Scanner(System.in);
     boolean salir = false;
-    int J1LP;
-    int J2LP;
 
     Jugador J1 = new Jugador();
     Jugador J2 = new Jugador();
@@ -42,6 +41,8 @@ public class Menu {
     ArrayList<Soldado> SoldadosJ2 = new ArrayList<>();
     ArrayList<Vehiculo> VehiculosJ1 = new ArrayList<>();
     ArrayList<Vehiculo> VehiculosJ2 = new ArrayList<>();
+    ArrayList<Soldado> SoldadosJ1Vivos = new ArrayList<>();
+    ArrayList<Soldado> SoldadosJ1Muertos = new ArrayList<>();
 
     public int getFase() {
         return fase;
@@ -79,7 +80,7 @@ public class Menu {
             System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
             System.out.println("");
             System.out.println("1. Iniciar Juego");
-            System.out.println("2. Putorial");
+            System.out.println("2. Tutorial");
             System.out.println("3. Opcion 3");
             System.out.println("4. Salir");
             System.out.println("");
@@ -122,9 +123,9 @@ public class Menu {
                 System.out.println("");
                 System.out.println(J1.getNombre() + ", elige tu raza: ");
                 System.out.println("");
-                System.out.println("1.R1");
-                System.out.println("2. R2");
-                System.out.println("3. R3");
+                System.out.println("1. Canibales");
+                System.out.println("2. Asesinos");
+                System.out.println("3. Bestias");
                 System.out.println("4. Salir");
                 System.out.println("");
                 System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
@@ -161,124 +162,143 @@ public class Menu {
 
     public int menuRazaJugador2() {
 
-        while (opc1 != 4) {
+        try {
+            System.out.println("");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+            System.out.println(J2.getNombre() + ", elige tu raza:");
+            System.out.println("");
+            System.out.println("1. Canibales");
+            System.out.println("2. Asesinos");
+            System.out.println("3. Bestias");
+            System.out.println("4. Salir");
+            System.out.println("");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
 
-            try {
-                System.out.println("");
-                System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
-                System.out.println(J2.getNombre() + ", elige tu raza:");
-                System.out.println("");
-                System.out.println("1.R1");
-                System.out.println("2. R2");
-                System.out.println("3. R3");
-                System.out.println("4. Salir");
-                System.out.println("");
-                System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+            System.out.println("Opcion:");
+            opc1 = sn.nextInt();
+            switch (opc1) {
+                case 1:
+                    J2.setRaza(1);
+                    System.out.println(".:.:.:.:.:.:.:.:.:||INICIA EL JUEGO||:.:.:.:.:.:.:.:.:.");
+                    System.out.println("");
+                    menuJuegoJ1();
+                    break;
 
-                System.out.println("Opcion:");
-                opc1 = sn.nextInt();
-                switch (opc1) {
-                    case 1:
-                        J2.setRaza(1);
-                        System.out.println(".:.:.:.:.:.:.:.:.:||INICIA EL JUEGO||:.:.:.:.:.:.:.:.:.");
-                        System.out.println("");
-                        menuJuegoJ1();
-                        break;
+                case 2:
+                    J2.setRaza(2);
+                    System.out.println(".:.:.:.:.:.:.:.:.:||INICIA EL JUEGO||:.:.:.:.:.:.:.:.:.");
+                    System.out.println("");
+                    menuJuegoJ1();
+                    break;
 
-                    case 2:
-                        J2.setRaza(2);
-                        System.out.println(".:.:.:.:.:.:.:.:.:||INICIA EL JUEGO||:.:.:.:.:.:.:.:.:.");
-                        System.out.println("");
-                        menuJuegoJ1();
-                        break;
-
-                    case 3:
-                        J2.setRaza(3);
-                        System.out.println(".:.:.:.:.:.:.:.:.:||INICIA EL JUEGO||:.:.:.:.:.:.:.:.:.");
-                        System.out.println("");
-                        menuJuegoJ1();
-                        break;
-                }
-            } catch (InputMismatchException e) {
-                System.out.println("Debes insertar un número");
-                sn.next();
+                case 3:
+                    J2.setRaza(3);
+                    System.out.println(".:.:.:.:.:.:.:.:.:||INICIA EL JUEGO||:.:.:.:.:.:.:.:.:.");
+                    System.out.println("");
+                    menuJuegoJ1();
+                    break;
             }
-
+        } catch (InputMismatchException e) {
+            System.out.println("Debes insertar un número");
+            sn.next();
         }
 
         return 0;
     }
 
     public int menuJuegoJ1() {
-        while (opc1 != 6) {
-            System.out.println("");
-            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
-            System.out.println("");
-            System.out.println("TURNO DE: " + J1.getNombre() + ", FASE: " + J1.getFase());
-            System.out.println("");
-            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
-            System.out.println("");
-            System.out.println("Recurso 1 de " + ":" + J1.getRecurso1());
-            System.out.println("Recurso 2 de " + ":" + J1.getRecurso2());
-            System.out.println("Recurso 3 de " + ":" + J1.getRecurso3());
-            System.out.println("");
-            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
-            System.out.println("");
-            System.out.println("1.Crear Edificios");
-            System.out.println("2. Crear Milicia");
-            System.out.println("3. Atacar Edificio");
-            System.out.println("4. Atacar Milicia");
-            System.out.println("5. Terminar turno.");
-            System.out.println("6. Salir");
-            System.out.println("");
-            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+        System.out.println("");
+        System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+        System.out.println("");
+        System.out.println("TURNO DE: " + J1.getNombre() + ", FASE: " + J1.getFase());
+        System.out.println("");
+        System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+        System.out.println("");
+        System.out.println("Recurso 1 de " + ":" + J1.getRecurso1());
+        System.out.println("Recurso 2 de " + ":" + J1.getRecurso2());
+        System.out.println("Recurso 3 de " + ":" + J1.getRecurso3());
+        System.out.println("");
+        System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+        System.out.println("");
+        System.out.println("1.Crear Edificios");
+        System.out.println("2. Crear Milicia");
+        System.out.println("3. Atacar Edificio");
+        System.out.println("4. Atacar Milicia");
+        System.out.println("5. Mejorar Centro de Mando");
+        System.out.println("6. Terminar turno");
+        System.out.println("");
+        System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
 
-            try {
-                System.out.println("Opcion:");
-                opc1 = sn.nextInt();
+        try {
+            System.out.println("Opcion:");
+            opc1 = sn.nextInt();
 
-                switch (opc1) {
+            switch (opc1) {
 
-                    case 1:
+                case 1:
 
-                        menuCreacionEdificiosJ1();
+                    menuCreacionEdificiosJ1();
 
-                    case 2:
+                case 2:
 
-                        menuCreacionSoldadoJ1();
+                    menuCreacionSoldadoJ1();
 
-                    case 3:
-
-                    case 4:
-                        menuCreacionEdificiosJ2();
+                case 3:
+                    if (SoldadosJ1.size() == 0 || J2.getFase() == 1) {
+                        System.out.println("");
+                        System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+                        System.out.println("NO DISPONES DE SOLDADOS AUN");
+                        System.out.println("O ESTE ES EL PRIMER TURNO Y NO SE PUEDE ATACAR");
+                        System.out.println("");
+                        System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
                         break;
 
-                    case 5:
-                        J1.setFase(J1.getFase() + 1);
-                        
-                        if(J1.isFabricaRecursosTipo1()==true){
-                            J1.setRecurso1(J1.getRecurso1()+J1.getGenerarRecurso1());
-                        }
-                        
-                        if(J1.isFabricaRecursosTipo2()==true){
-                            J1.setRecurso2(J1.getRecurso2()+J1.getGenerarRecurso2());
-                        }
-                        
-                        if(J1.isFabricaRecursosTipo3()==true){
-                            J1.setRecurso3(J1.getRecurso3()+J1.getGenerarRecurso3());
-                        }
-                        menuJuegoJ2();
+                    } else {
+                        menuAtaqueJ1();
+                    }
 
-                    default:
-                        System.out.println("Solo números entre 1 y 4");
-                }
-            } catch (InputMismatchException e) {
-                System.out.println("Debes insertar un número");
-                sn.next();
+                case 4:
+                    menuCreacionEdificiosJ2();
+                    break;
 
+                case 5:
+
+                    menuMejoraCentrodeMandoJ1();
+
+                case 6:
+                    J1.setFase(J1.getFase() + 1);
+
+                    if (J1.getRecurso1() >= 10000) {
+                        System.out.println("");
+                        System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+                        System.out.println("CAPACIDAD MAXIMA ALCANZADA");
+                        System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+                        System.out.println(".");
+                        J1.setRecurso1(10000);
+                    }
+
+                    if (J1.isFabricaRecursosTipo1() == true) {
+                        J1.setRecurso1(J1.getRecurso1() + J1.getGenerarRecurso1());
+                    }
+
+                    if (J1.isFabricaRecursosTipo2() == true) {
+                        J1.setRecurso2(J1.getRecurso2() + J1.getGenerarRecurso2());
+                    }
+
+                    if (J1.isFabricaRecursosTipo3() == true) {
+                        J1.setRecurso3(J1.getRecurso3() + J1.getGenerarRecurso3());
+                    }
+                    menuJuegoJ2();
+
+                default:
+                    System.out.println("Solo números entre 1 y 4");
             }
+        } catch (InputMismatchException e) {
+            System.out.println("Debes insertar un número");
+            sn.next();
 
         }
+
         return opc1;
     }
 
@@ -323,6 +343,19 @@ public class Menu {
 
                     case 3:
 
+                        if (SoldadosJ2.size() == 0 || J1.getFase() == 1) {
+                            System.out.println("");
+                            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+                            System.out.println("NO DISPONES DE SOLDADOS AUN");
+                            System.out.println("O ESTE ES EL PRIMER TURNO Y NO SE PUEDE ATACAR");
+                            System.out.println("");
+                            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+                            break;
+
+                        } else {
+                            menuAtaqueJ2();
+                        }
+
                     case 4:
                         menuCreacionEdificiosJ2();
                         break;
@@ -330,17 +363,17 @@ public class Menu {
                     case 5:
 
                         J2.setFase(J2.getFase() + 1);
-                        
-                        if(J2.isFabricaRecursosTipo1()==true){
-                            J2.setRecurso1(J2.getRecurso1()+J2.getGenerarRecurso1());
+
+                        if (J2.isFabricaRecursosTipo1() == true) {
+                            J2.setRecurso1(J2.getRecurso1() + J2.getGenerarRecurso1());
                         }
-                        
-                        if(J2.isFabricaRecursosTipo2()==true){
-                            J2.setRecurso2(J2.getRecurso2()+J2.getGenerarRecurso2());
+
+                        if (J2.isFabricaRecursosTipo2() == true) {
+                            J2.setRecurso2(J2.getRecurso2() + J2.getGenerarRecurso2());
                         }
-                        
-                        if(J2.isFabricaRecursosTipo3()==true){
-                            J2.setRecurso3(J2.getRecurso3()+J2.getGenerarRecurso3());
+
+                        if (J2.isFabricaRecursosTipo3() == true) {
+                            J2.setRecurso3(J2.getRecurso3() + J2.getGenerarRecurso3());
                         }
                         menuJuegoJ1();
 
@@ -357,8 +390,62 @@ public class Menu {
         return opc1;
     }
 
+    public int menuMejoraCentrodeMandoJ1() {
+
+        try {
+            System.out.println("");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+            System.out.println("");
+            System.out.println("Recurso 1 de " + ":" + J1.getRecurso1());
+            System.out.println("Recurso 2 de " + ":" + J1.getRecurso2());
+            System.out.println("Recurso 3 de " + ":" + J1.getRecurso3());
+            System.out.println("");
+            System.out.println("");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+            System.out.println("1. Mejora Nivel 1. Costo: ");
+            System.out.println("Petroleo: 11000 ");
+            System.out.println("Metales: 5500  ");
+            System.out.println("Uranio: 3300");
+            System.out.println("2. Mejora Nivel 2");
+            System.out.println("3. Mejora Nivel 3");
+            System.out.println("4. Salir");
+            System.out.println("");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+
+            System.out.println("Opcion:");
+            opc1 = sn.nextInt();
+            switch (opc1) {
+                case 1:
+                    J2.setRaza(1);
+                    System.out.println(".:.:.:.:.:.:.:.:.:||INICIA EL JUEGO||:.:.:.:.:.:.:.:.:.");
+                    System.out.println("");
+                    menuJuegoJ1();
+                    break;
+
+                case 2:
+                    J2.setRaza(2);
+                    System.out.println(".:.:.:.:.:.:.:.:.:||INICIA EL JUEGO||:.:.:.:.:.:.:.:.:.");
+                    System.out.println("");
+                    menuJuegoJ1();
+                    break;
+
+                case 3:
+                    J2.setRaza(3);
+                    System.out.println(".:.:.:.:.:.:.:.:.:||INICIA EL JUEGO||:.:.:.:.:.:.:.:.:.");
+                    System.out.println("");
+                    menuJuegoJ1();
+                    break;
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Debes insertar un número");
+            sn.next();
+        }
+
+        return 0;
+    }
+
     public int menuCreacionEdificiosJ1() {
-        while (opc1 != 7) {
+
 
             System.out.println("");
             System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
@@ -368,11 +455,21 @@ public class Menu {
             System.out.println("Recurso 3 de " + ":" + J1.getRecurso3());
             System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
             System.out.println("1. Crear Fabrica de Recursos");
-            System.out.println("2. Crear Fabrica de Soldados(Costo:5000)");
-            System.out.println("3. Crear Fabrica de Vehiculos Tipo1");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+            System.out.println("2. Crear Fabrica de Soldados. Costo:");
+            System.out.println("Petroleo: 2000");
+            System.out.println("Metales: 1000");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+            System.out.println("3. Crear Fabrica de Vehiculos Tipo1. Costo: ");
+            System.out.println("Metales: 1000");
+            System.out.println("Uranio: 600");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
             System.out.println("4. Crear Fabrica de Vehiculos Tipo2");
+            System.out.println("Petroleo: 4000");
+            System.out.println("Metales: 2000");
+            System.out.println("Uranio: 600");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
             System.out.println("5. Regresar");
-            System.out.println("6. Salir");
             System.out.println("");
             System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
 
@@ -450,12 +547,9 @@ public class Menu {
                         }
 
                     case 5:
-                        menuCreacionEdificiosJ2();
-                        break;
-
-                    case 6:
                         menuJuegoJ1();
                         break;
+
                     default:
                         System.out.println("Solo números entre 1 y 4");
                 }
@@ -465,12 +559,12 @@ public class Menu {
 
             }
 
-        }
+        
         return opc1;
     }
 
     public int menuCreacionEdificiosJ2() {
-        while (opc1 != 7) {
+
 
             System.out.println("");
             System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
@@ -481,11 +575,21 @@ public class Menu {
             System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
             System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
             System.out.println("1. Crear Fabrica de Recursos");
-            System.out.println("2. Crear Fabrica de Soldados(Costo:5000)");
-            System.out.println("3. Crear Fabrica de Vehiculos Tipo1");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+            System.out.println("2. Crear Fabrica de Soldados. Costo:");
+            System.out.println("Petroleo: 2000");
+            System.out.println("Metales: 1000");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+            System.out.println("3. Crear Fabrica de Vehiculos Tipo1. Costo: ");
+            System.out.println("Metales: 1000");
+            System.out.println("Uranio: 600");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
             System.out.println("4. Crear Fabrica de Vehiculos Tipo2");
+            System.out.println("Petroleo: 4000");
+            System.out.println("Metales: 2000");
+            System.out.println("Uranio: 600");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
             System.out.println("5. Regresar");
-            System.out.println("6. Salir");
             System.out.println("");
             System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
 
@@ -563,12 +667,9 @@ public class Menu {
                         }
 
                     case 5:
-                        menuCreacionEdificiosJ2();
-                        break;
-
-                    case 6:
                         menuJuegoJ2();
                         break;
+
                     default:
                         System.out.println("Solo números entre 1 y 4");
                 }
@@ -578,7 +679,7 @@ public class Menu {
 
             }
 
-        }
+        
         return opc1;
     }
 
@@ -591,9 +692,16 @@ public class Menu {
             System.out.println("Recurso 2 de " + ":" + J1.getRecurso2());
             System.out.println("Recurso 3 de " + ":" + J1.getRecurso3());
             System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
-            System.out.println("1.Crear almacen de petroleo");
-            System.out.println("2. Crear almacen para metales de construccion");
+            System.out.println("1.Crear almacen de petroleo. Costo: ");
+            System.out.println("Petroleo: 500");
+            System.out.println("Metales: 250");
+            System.out.println("2. Crear almacen para metales de construccion. Costo: ");
+            System.out.println("Metales: 250");
+            System.out.println("Uranio: 300");
             System.out.println("3. Crear planta nuclear");
+            System.out.println("Petroleo: 1000");
+            System.out.println("Metales: 500");
+            System.out.println("Uranio: 300");
             System.out.println("4. Regresar");
             System.out.println("");
             System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
@@ -934,81 +1042,124 @@ public class Menu {
 
     public int menuAtaqueJ1() {
 
-        for (int i = 1; i != 0; i++) {
+        while (opc1 != 4 || salir != false) {
 
-            System.out.println(J2LP);
-            J2LP = J2.getLP();
+            System.out.println("");
+            System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+            System.out.println("MENU DE ATAQUE");
+            System.out.println("Fase #" + J1.getFase() + "del juego");
+            System.out.println("1.Atacar a Milicia");
+            System.out.println("2.Atacar a edificios");
+            System.out.println("3. Opcion 3");
+            System.out.println("4. Salir");
 
-            while (opc1 != 4 || salir != false) {
+            try {
+                System.out.println("Opcion: ");
+                opc1 = sn.nextInt();
 
-                J1LP = J1.getLP();
-                J2LP = J2.getLP();
-
-                System.out.println("Soldado Creado");
-                System.out.println("Fase #" + fase + "del juego");
-                System.out.println("1.Atacar Jugador");
-                System.out.println("2. Opcion 2");
-                System.out.println("3. Opcion 3");
-                System.out.println("4. Salir");
-
-                try {
-
-                    opc1 = sn.nextInt();
-
-                    switch (opc1) {
-                        case 1:
-                            while (opc1 != 4) {
-                                SoldadosJ1.get(0);
-
-                                SoldadosJ1.get(0).atacar();
-
-                                J2.setAtaque(SoldadosJ1.get(0).atacar()); //*Setea ataque//
-
-                                J2.atacarLP();
-
-                                System.out.println("LP" + J2.getLP());
-
-                                J2LP = J2.getLP();
-
-                                System.out.println("VARIABLE J2LP" + J2LP);
-
-                                System.out.println("Soldado creado");
-
-                                fase = fase + 1;
-
-                                if (J1.getLP() <= 0 || J2.getLP() <= 0) {
-                                    finJuego();
-
-                                }
-                                break;
-
-                            }
+                switch (opc1) {
+                    case 1:
+                        if (SoldadosJ2.isEmpty()) {
+                            System.out.println("No hay soldados para atacar.");
                             break;
+                        } else {
 
-                        case 2:
+                            menuAtaqueMiliciaJ1();
 
-                            System.out.println("Has seleccionado la opcion 2");
+                        }
 
-                            break;
-                        case 3:
-                            System.out.println("Has seleccionado la opcion 3");
-                            break;
-                        case 4:
-                            salir = true;
+                    case 2:
 
-                            System.exit(0);
-                            break;
-                        default:
-                            System.out.println("Solo números entre 1 y 4");
-                    }
-                } catch (InputMismatchException e) {
-                    System.out.println("Debes insertar un número");
-                    sn.next();
+                        System.out.println("Has seleccionado la opcion 2");
 
+                        break;
+                    case 3:
+                        System.out.println("Has seleccionado la opcion 3");
+                        break;
+                    case 4:
+                        salir = true;
+
+                        System.exit(0);
+                        break;
+                    default:
+                        System.out.println("Solo números entre 1 y 4");
                 }
+            } catch (InputMismatchException e) {
+                System.out.println("Debes insertar un número");
+                sn.next();
+
             }
+        }
+
+        return 0;
+    }
+
+    public int menuAtaqueMiliciaJ1() {
+
+        System.out.println("");
+        System.out.println(".:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:");
+        System.out.println("MENU DE ATAQUE");
+        System.out.println("Fase #" + J1.getFase() + "del juego");
+        System.out.println("1.Atacar Milicia");
+        System.out.println("2.Atacar edificios");
+        System.out.println("3. Opcion 3");
+        System.out.println("4. Salir");
+
+        try {
+            System.out.println("Opcion: ");
+            opc1 = sn.nextInt();
+
+            switch (opc1) {
+                case 1:
+                    System.out.println(J1.getNombre() + ", tienes " + SoldadosJ1.size() + " soldados bajo tu mando.");
+
+                    Iterator<Soldado> IteradorSoldados = SoldadosJ1.iterator();
+
+                    IteradorSoldados = SoldadosJ1.iterator();
+                    while (IteradorSoldados.hasNext()) {
+                        Soldado elemento = IteradorSoldados.next();
+                        if (elemento.getLP() == 0) {
+                            SoldadosJ1Muertos.add(elemento);
+                        }
+
+                        if (elemento.getLP() > 0) {
+                            SoldadosJ1Vivos.add(elemento);
+                        }
+                        
+                        System.out.println("Tienes "+ SoldadosJ1Vivos.size() + "soldados disponibles");
+                        System.out.println("Tienes "+ SoldadosJ1Muertos.size() + "soldados caidos");
+                        
+                        
+                        
+                        
+
+                        System.out.println(SoldadosJ1Vivos.size());
+
+                    }
+                    break;
+
+                case 2:
+
+                    System.out.println("Has seleccionado la opcion 2");
+
+                    break;
+                case 3:
+                    System.out.println("Has seleccionado la opcion 3");
+                    break;
+                case 4:
+                    salir = true;
+
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("Solo números entre 1 y 4");
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Debes insertar un número");
+            sn.next();
 
         }
+
         return 0;
     }
 
@@ -1040,6 +1191,8 @@ public class Menu {
                                 SoldadosJ1.get(0);
 
                                 SoldadosJ1.get(0).atacar();
+
+                                SoldadosJ1.get(i)
 
                                 J2.setAtaque(SoldadosJ1.get(0).atacar()); //*Setea ataque//
 

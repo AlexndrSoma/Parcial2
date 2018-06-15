@@ -14,9 +14,26 @@ import Milicia.Soldado;
  */
 public class SER2 implements Soldado {
     
+    int LP;
     
-        @Override
+          @Override
    public int atacar(){
+        int ataque=500;
+
+  
+        return ataque;
+    }
+   
+    @Override
+   public int getLP(){
+        int ataque=500;
+
+  
+        return ataque;
+    }
+   
+    @Override
+   public int setLP(){
         int ataque=500;
 
   

@@ -11,4 +11,6 @@ package Milicia;
  */
 public interface Soldado {
     int atacar();
+    int getLP();
+    int setLP();
 }

@@ -14,6 +14,8 @@ import Milicia.Soldado;
  */
 public class SESR1 implements Soldado {
     
+    int LP;
+    
           @Override
    public int atacar(){
         int ataque=500;
@@ -21,5 +23,20 @@ public class SESR1 implements Soldado {
   
         return ataque;
     }
-    
+   
+    @Override
+   public int getLP(){
+        int ataque=500;
+
+  
+        return ataque;
+    }
+   
+    @Override
+   public int setLP(){
+        int ataque=500;
+
+  
+        return ataque;
+    }
 }

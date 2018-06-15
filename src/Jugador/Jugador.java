@@ -21,12 +21,18 @@ public class Jugador {
     int generarRecurso2 = 500;
     int recurso3=300;
     int generarRecurso3 = 300;
+    double mejorarRecursosN1= 0.1;
+    double mejorarRecursosN2= 0.3;
+    double mejorarRecursosN3= 0.5;
     boolean fabricaSoldados=false;
     boolean fabricaVehiculosTipo1=false;
     boolean fabricaVehiculosTipo2=false;
     boolean fabricaRecursosTipo1=false;
     boolean fabricaRecursosTipo2=false;
     boolean fabricaRecursosTipo3=false;
+    boolean  mejoraRecursosN1 =false;
+    boolean  mejoraRecursosN2 =false;
+    boolean  mejoraRecursosN3 =false;
     int fase=1;
 
     public String getNombre() {
@@ -85,7 +91,16 @@ public class Jugador {
 
     public void setRecurso1(int recurso1) {
         this.recurso1 = recurso1;
+       
     }
+
+
+    
+    
+
+ 
+
+    
 
     public int getRecurso2() {
         return recurso2;
@@ -95,6 +110,9 @@ public class Jugador {
         this.recurso2 = recurso2;
     }
 
+    
+    
+
     public int getRecurso3() {
         return recurso3;
     }
@@ -102,6 +120,8 @@ public class Jugador {
     public void setRecurso3(int recurso3) {
         this.recurso3 = recurso3;
     }
+
+    
 
     public int getGenerarRecurso1() {
         return generarRecurso1;
@@ -125,6 +145,54 @@ public class Jugador {
 
     public void setGenerarRecurso3(int generarRecurso3) {
         this.generarRecurso3 = generarRecurso3;
+    }
+
+    public double getMejorarRecursosN1() {
+        return mejorarRecursosN1;
+    }
+
+    public void setMejorarRecursosN1(double mejorarRecursosN1) {
+        this.mejorarRecursosN1 = mejorarRecursosN1;
+    }
+
+    public double getMejorarRecursosN2() {
+        return mejorarRecursosN2;
+    }
+
+    public void setMejorarRecursosN2(double mejorarRecursosN2) {
+        this.mejorarRecursosN2 = mejorarRecursosN2;
+    }
+
+    public double getMejorarRecursosN3() {
+        return mejorarRecursosN3;
+    }
+
+    public void setMejorarRecursosN3(double mejorarRecursosN3) {
+        this.mejorarRecursosN3 = mejorarRecursosN3;
+    }
+
+    public boolean isMejoraRecursosN1() {
+        return mejoraRecursosN1;
+    }
+
+    public void setMejoraRecursosN1(boolean mejoraRecursosN1) {
+        this.mejoraRecursosN1 = mejoraRecursosN1;
+    }
+
+    public boolean isMejoraRecursosN2() {
+        return mejoraRecursosN2;
+    }
+
+    public void setMejoraRecursosN2(boolean mejoraRecursosN2) {
+        this.mejoraRecursosN2 = mejoraRecursosN2;
+    }
+
+    public boolean isMejoraRecursosN3() {
+        return mejoraRecursosN3;
+    }
+
+    public void setMejoraRecursosN3(boolean mejoraRecursosN3) {
+        this.mejoraRecursosN3 = mejoraRecursosN3;
     }
     
     
